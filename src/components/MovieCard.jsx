@@ -1,0 +1,27 @@
+const MovieCard = ({ movie: {title, vote_average, poster_path, release_date, original_language} }) => {
+    return ( 
+        <div className="movie-card">
+            <img alt={title} src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : '/no-movie.png'} />
+            <div className="mt-4">
+                <h3 className="text-white text-center">{title}</h3>
+            </div>
+            <div className="content">
+                <div className="rating">
+                    <img src="star.svg" alt='star ico'/>
+                    <p>{vote_average ? vote_average.toFixed(1) : 'N/A' }</p>
+                </div>
+                <span>.</span>
+                <p className="lang">{original_language}</p>
+                <span>.</span>
+                <p className="year">
+                    <p>{release_date ? release_date.split('-')[0] : 'N/A' }</p>
+                </p>
+
+            </div>
+
+
+        </div>
+     );
+}
+ 
+export default MovieCard;
